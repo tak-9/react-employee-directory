@@ -5,7 +5,15 @@ function EmployeeTable(props){
     return (
         <table className="table table-striped">
             <thead>
-                <tr><th>Image</th><th>Name</th><th>Phone</th><th>Email</th><th>DOB</th></tr>
+                <tr>
+                    <th>Image</th>
+                    <th>Name  
+                        <span onClick={props.sortName} style={{cursor: "pointer"}}><i className="fa fa fa-sort"></i></span>
+                    </th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>DOB</th>
+                </tr>
             </thead>
             <tbody>
                 {props.employees.map((employee, index) => 

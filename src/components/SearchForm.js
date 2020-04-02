@@ -9,7 +9,7 @@ function SearchForm(props){
                     value={props.searchKeyword} 
                     name="searchKeyword" 
                     type="text"
-                    placeholder="Enter Search Keyword"
+                    placeholder="Enter Name to Search"
                 />
             </form>
         </div>

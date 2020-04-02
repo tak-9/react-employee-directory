@@ -8,7 +8,8 @@ class App extends Component {
     state = {
         employees: [], // Do not modify 'employees' after employees are assinged by API call as it is for keeping original data. 
         employeesForDisplay: [], // employeesForDisplay is displayed in <EmployeeTable />.  
-        searchKeyword: ""
+        searchKeyword: "",
+        sortAsc: false 
     }
 
     componentDidMount() { 
@@ -16,7 +17,7 @@ class App extends Component {
     }
 
     getEmployees = () => {
-        const url = "https://randomuser.me/api/?results=6";
+        const url = "https://randomuser.me/api/?results=20";
         axios.get(url)
         .then((res) => {
             this.setState( {employees: res.data.results} );
@@ -37,11 +38,54 @@ class App extends Component {
 
     // This filters employees using searchKeyword. Then, assign it to employeesForDisplay state.
     filterEmployee() {
-        var filteredEmployees = this.state.employees.filter((employee) => {
-            var fullName = employee.name.first + " " + employee.name.last;
+        let filteredEmployees = this.state.employees.filter((employee) => {
+            let fullName = employee.name.first + " " + employee.name.last;
             return (fullName.includes(this.state.searchKeyword));
         });
         this.setState({employeesForDisplay: filteredEmployees});
+    }
+
+    sortName = event => {
+        console.log("sort");
+        if (this.state.sortAsc) {
+            this.sortNameDecend();
+        } else {
+            this.sortNameAscend();
+        }
+    }
+
+    sortNameAscend() {
+        console.log("sortNameAscend()"); 
+        let sortedEmployees = this.state.employees.sort(function(a,b){
+            let nameA = a.name.first.toUpperCase();
+            let nameB = b.name.first.toUpperCase();
+            if (nameA < nameB){
+                return -1;
+            } 
+            if (nameA > nameB){
+                return 1;
+            }
+            return 0;
+        })
+        this.setState({sortAsc: true});
+        this.setState({employeesForDisplay: sortedEmployees}) 
+    }
+
+    sortNameDecend() {
+        console.log("sortNameDecend()"); 
+        let sortedEmployees = this.state.employees.sort(function(a,b){
+            let nameA = a.name.first.toUpperCase();
+            let nameB = b.name.first.toUpperCase();
+            if (nameA < nameB){
+                return 1;
+            } 
+            if (nameA > nameB){
+                return -1;
+            }
+            return 0;
+        })
+        this.setState({sortAsc: false});
+        this.setState({employeesForDisplay: sortedEmployees}) 
     }
 
     render() {
@@ -53,7 +97,10 @@ class App extends Component {
                     searchKeyword={this.state.searchKeyword}
                     handleInputChange={this.handleInputChange}
                 />
-                <EmployeeTable employees={this.state.employeesForDisplay}/>
+                <EmployeeTable 
+                    employees={this.state.employeesForDisplay}
+                    sortName={this.sortName}
+                />
             </div>
         )
     }
