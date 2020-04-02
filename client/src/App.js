@@ -9,7 +9,8 @@ class App extends Component {
         employees: [], // Do not modify 'employees' after employees are assinged by API call as it is for keeping original data. 
         employeesForDisplay: [], // employeesForDisplay is displayed in <EmployeeTable />.  
         searchKeyword: "",
-        sortAsc: false 
+        sortNameAsc: false,
+        sortDOBAsc: false
     }
 
     componentDidMount() { 
@@ -47,7 +48,7 @@ class App extends Component {
 
     sortName = event => {
         console.log("sort");
-        if (this.state.sortAsc) {
+        if (this.state.sortNameAsc) {
             this.sortNameDecend();
         } else {
             this.sortNameAscend();
@@ -67,7 +68,8 @@ class App extends Component {
             }
             return 0;
         })
-        this.setState({sortAsc: true});
+        this.setState({sortNameAsc: true});
+        this.setState({sortDOB: true});
         this.setState({employeesForDisplay: sortedEmployees}) 
     }
 
@@ -84,10 +86,59 @@ class App extends Component {
             }
             return 0;
         })
-        this.setState({sortAsc: false});
+        this.setState({sortNameAsc: false});
         this.setState({employeesForDisplay: sortedEmployees}) 
     }
 
+    sortDOB = event => {
+        console.log("sort");
+        if (this.state.sortDOBAsc) {
+            this.sortDOBDecend();
+        } else {
+            this.sortDOBAscend();
+        }
+    }
+
+    sortDOBAscend() {
+        console.log("sortDOBAscend()");
+        /* 
+        let sortedEmployees = this.state.employees.sort(function(a,b){
+            let nameA = a.dob.first.toUpperCase();
+            let nameB = b.dob.first.toUpperCase();
+            if (nameA < nameB){
+                return -1;
+            } 
+            if (nameA > nameB){
+                return 1;
+            }
+            return 0;
+        })
+        this.setState({sortDOBAsc: true});
+        this.setState({sortDOB: true});
+        this.setState({employeesForDisplay: sortedEmployees})
+        */ 
+    }
+
+    sortDOBDecend() {
+        console.log("sortNameDecend()"); 
+        /*
+        let sortedEmployees = this.state.employees.sort(function(a,b){
+            let nameA = a.name.first.toUpperCase();
+            let nameB = b.name.first.toUpperCase();
+            if (nameA < nameB){
+                return 1;
+            } 
+            if (nameA > nameB){
+                return -1;
+            }
+            return 0;
+        })
+        this.setState({sortNameAsc: false});
+        this.setState({employeesForDisplay: sortedEmployees})
+        */ 
+    }
+
+    
     render() {
         console.log("render()");
         return (
@@ -100,6 +151,7 @@ class App extends Component {
                 <EmployeeTable 
                     employees={this.state.employeesForDisplay}
                     sortName={this.sortName}
+                    sortDOB={this.sortDOB}
                 />
             </div>
         )
