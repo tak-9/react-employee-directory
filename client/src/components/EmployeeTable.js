@@ -7,13 +7,17 @@ function EmployeeTable(props){
             <thead>
                 <tr>
                     <th>Image</th>
-                    <th>Name 
+                    <th>Name&ensp;
                         <span onClick={props.sortName} style={{cursor: "pointer"}}><i className="fa fa fa-sort"></i></span>
                     </th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>DOB
-                    <span onClick={props.sortDOB} style={{cursor: "pointer"}}><i className="fa fa fa-sort"></i></span>
+                    <th>Phone&ensp;
+                        <span onClick={props.sortPhone} style={{cursor: "pointer"}}><i className="fa fa fa-sort"></i></span>
+                    </th>
+                    <th>Email&ensp;
+                        <span onClick={props.sortEmail} style={{cursor: "pointer"}}><i className="fa fa fa-sort"></i></span>
+                    </th>
+                    <th>DOB&ensp;
+                        <span onClick={props.sortDOB} style={{cursor: "pointer"}}><i className="fa fa fa-sort"></i></span>
                     </th>
                 </tr>
             </thead>

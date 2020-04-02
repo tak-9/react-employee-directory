@@ -10,7 +10,9 @@ class App extends Component {
         employeesForDisplay: [], // employeesForDisplay is displayed in <EmployeeTable />.  
         searchKeyword: "",
         sortNameAsc: false,
-        sortDOBAsc: false
+        sortEmailAsc: false,
+        sortDOBAsc: false,
+        sortPhoneAsc: false
     }
 
     componentDidMount() { 
@@ -47,7 +49,7 @@ class App extends Component {
     }
 
     sortName = event => {
-        console.log("sort");
+        //console.log("sort");
         if (this.state.sortNameAsc) {
             this.sortNameDecend();
         } else {
@@ -56,7 +58,7 @@ class App extends Component {
     }
 
     sortNameAscend() {
-        console.log("sortNameAscend()"); 
+        //console.log("sortNameAscend()"); 
         let sortedEmployees = this.state.employees.sort(function(a,b){
             let nameA = a.name.first.toUpperCase();
             let nameB = b.name.first.toUpperCase();
@@ -74,7 +76,7 @@ class App extends Component {
     }
 
     sortNameDecend() {
-        console.log("sortNameDecend()"); 
+        //console.log("sortNameDecend()"); 
         let sortedEmployees = this.state.employees.sort(function(a,b){
             let nameA = a.name.first.toUpperCase();
             let nameB = b.name.first.toUpperCase();
@@ -91,7 +93,6 @@ class App extends Component {
     }
 
     sortDOB = event => {
-        console.log("sort");
         if (this.state.sortDOBAsc) {
             this.sortDOBDecend();
         } else {
@@ -100,47 +101,122 @@ class App extends Component {
     }
 
     sortDOBAscend() {
-        console.log("sortDOBAscend()");
-        /* 
         let sortedEmployees = this.state.employees.sort(function(a,b){
-            let nameA = a.dob.first.toUpperCase();
-            let nameB = b.dob.first.toUpperCase();
-            if (nameA < nameB){
+            let empA = new Date(a.dob.date);
+            let empB = new Date(b.dob.date);
+            if (empA < empB){
                 return -1;
             } 
-            if (nameA > nameB){
+            if (empA > empB){
                 return 1;
             }
             return 0;
         })
         this.setState({sortDOBAsc: true});
-        this.setState({sortDOB: true});
         this.setState({employeesForDisplay: sortedEmployees})
-        */ 
     }
 
     sortDOBDecend() {
-        console.log("sortNameDecend()"); 
-        /*
         let sortedEmployees = this.state.employees.sort(function(a,b){
-            let nameA = a.name.first.toUpperCase();
-            let nameB = b.name.first.toUpperCase();
-            if (nameA < nameB){
+            let empA = new Date(a.dob.date);
+            let empB = new Date(b.dob.date);
+            if (empA < empB){
                 return 1;
             } 
-            if (nameA > nameB){
+            if (empA > empB){
                 return -1;
             }
             return 0;
         })
-        this.setState({sortNameAsc: false});
+        this.setState({sortDOBAsc: false});
         this.setState({employeesForDisplay: sortedEmployees})
-        */ 
     }
 
-    
+    sortEmail = event => {
+        //console.log("sortEmail", this.state.employees)
+        if (this.state.sortEmailAsc) {
+            this.sortEmailDecend();
+        } else {
+            this.sortEmailAscend();
+        }
+    }
+
+    sortEmailAscend() {
+        let sortedEmployees = this.state.employees.sort(function(a,b){
+            let empA = a.email.toUpperCase();
+            let empB = b.email.toUpperCase();
+            if (empA < empB){
+                return -1;
+            } 
+            if (empA > empB){
+                return 1;
+            }
+            return 0;
+        })
+        this.setState({sortEmailAsc: true});
+        this.setState({employeesForDisplay: sortedEmployees})
+    }
+
+    sortEmailDecend() {
+        let sortedEmployees = this.state.employees.sort(function(a,b){
+            let empA = a.email.toUpperCase();
+            let empB = b.email.toUpperCase();
+            if (empA < empB){
+                return 1;
+            } 
+            if (empA > empB){
+                return -1;
+            }
+            return 0;
+        })
+        this.setState({sortEmailAsc: false});
+        this.setState({employeesForDisplay: sortedEmployees})
+    }
+
+    sortPhone = event => {
+        //console.log("sortPhone", this.state.employees)
+        if (this.state.sortPhoneAsc) {
+            this.sortPhoneDecend();
+        } else {
+            this.sortPhoneAscend();
+        }
+    }
+
+    sortPhoneAscend() {
+        let sortedEmployees = this.state.employees.sort(function(a,b){
+            let empA = a.phone;
+            let empB = b.phone;
+            if (empA < empB){
+                return -1;
+            } 
+            if (empA > empB){
+                return 1;
+            }
+            return 0;
+        })
+        this.setState({sortPhoneAsc: true});
+        this.setState({employeesForDisplay: sortedEmployees})
+    }
+
+    sortPhoneDecend() {
+        let sortedEmployees = this.state.employees.sort(function(a,b){
+            let empA = a.phone;
+            let empB = b.phone;
+            if (empA < empB){
+                return 1;
+            } 
+            if (empA > empB){
+                return -1;
+            }
+            return 0;
+        })
+        this.setState({sortPhoneAsc: false});
+        this.setState({employeesForDisplay: sortedEmployees})
+    }
+
+
     render() {
-        console.log("render()");
+        //console.log("render()");
         return (
             <div>
                 <Nabbar />
@@ -151,6 +227,8 @@ class App extends Component {
                 <EmployeeTable 
                     employees={this.state.employeesForDisplay}
                     sortName={this.sortName}
+                    sortPhone={this.sortPhone}
+                    sortEmail={this.sortEmail}
                     sortDOB={this.sortDOB}
                 />
             </div>
