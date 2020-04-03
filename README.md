@@ -1,26 +1,26 @@
 # Employee Directory
 This is an Employee Directory using React. A user can view a list of employee's information such as picture, phone number, email and DOB.
 
-<img src="screencapture.png" width=400px> 
+<img src="screencapture.png" width=600px> 
 
-## Setup
-1.	Ensure node.js is installed. 
-      
-2.	Start server.
+## Deployment
 
-      $ node server.js 
-      
-3.	Open it by a web browser. 
+https://create-react-app.dev/docs/deployment/#github-pages
+
+Check the section of "Git Hub Pages"
+
 
 ## Usage 
-Application has been deployed to herorku. Access the following URL to open the web application.
+Access the following URL to open the web application.
 
-http://employee-directory-takuji.herokuapp.com/
+https://tak-9.github.io/react-employee-directory/
+
 
 ## Technologies used
 * HTML, Bootstrap, JavaScript, Express, React
 
 ##  Credit 
 Employee data is provided by randomuser.me API  https://randomuser.me/
+
 Sort icon is provided by Fontawesome https://fontawesome.com/
 
