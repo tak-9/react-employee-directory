@@ -5,7 +5,7 @@ function Nabbar(){
         <div className="jumbotron jumbotron-fluid bg-dark text-white">
             <div className="container">
             <h1 className="display-4">Employee Directory</h1>
-            <p className="lead">Click on carrots to filter by heading or use the search box to narrow your results.</p>
+            <p className="lead">Click on an arrow to sort by heading or use the search box to narrow your results.</p>
             </div>
         </div>
     )
