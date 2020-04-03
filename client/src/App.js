@@ -58,41 +58,49 @@ class App extends Component {
 
     sortName = event => {
         if (this.state.sortNameAsc) {
-            this.setState({employeesForDisplay: sortNameAscend(this.state.employees)});
-            this.setState({sortNameAsc: false});
+            this.setState({
+                employeesForDisplay: sortNameAscend(this.state.employees),
+                sortNameAsc: false});
         } else {
-            this.setState({employeesForDisplay: sortNameDecend(this.state.employees)});
-            this.setState({sortNameAsc: true});
+            this.setState({
+                employeesForDisplay: sortNameDecend(this.state.employees),
+                sortNameAsc: true});
         }
     }
 
     sortDOB = event => {
         if (this.state.sortDOBAsc) {
-            this.setState({employeesForDisplay: sortDOBAscend(this.state.employees)});
-            this.setState({sortDOBAsc: false});
+            this.setState({
+                employeesForDisplay: sortDOBAscend(this.state.employees),
+                sortDOBAsc: false});
         } else {
-            this.setState({employeesForDisplay: sortDOBDecend(this.state.employees)});
-            this.setState({sortDOBAsc: true});
+            this.setState({
+                employeesForDisplay: sortDOBDecend(this.state.employees),
+                sortDOBAsc: true});
         }
     }
 
     sortEmail = event => {
         if (this.state.sortEmailAsc) {
-            this.setState({employeesForDisplay: sortEmailAscend(this.state.employees)})
-            this.setState({sortEmailAsc: false});
+            this.setState({
+                employeesForDisplay: sortEmailAscend(this.state.employees),
+                sortEmailAsc: false});
         } else {
-            this.setState({employeesForDisplay: sortEmailDecend(this.state.employees)})
-            this.setState({sortEmailAsc: true});
+            this.setState({
+                employeesForDisplay: sortEmailDecend(this.state.employees),
+                sortEmailAsc: true});
         }
     }
 
     sortPhone = event => {
         if (this.state.sortPhoneAsc) {
-            this.setState({employeesForDisplay: sortPhoneAscend(this.state.employees)})
-            this.setState({sortPhoneAsc: false});
+            this.setState({
+                employeesForDisplay: sortPhoneAscend(this.state.employees),
+                sortPhoneAsc: false});
         } else {
-            this.setState({employeesForDisplay: sortPhoneDecend(this.state.employees)})
-            this.setState({sortPhoneAsc: true});
+            this.setState({
+                employeesForDisplay: sortPhoneDecend(this.state.employees),
+                sortPhoneAsc: true});
         }
     }
 
