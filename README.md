@@ -1,7 +1,7 @@
 # Employee Directory
 This is an Employee Directory using React. A user can view a list of employee's information such as picture, phone number, email and DOB.
 
-<img src="screencapture.jpg" width=400px> 
+<img src="screencapture.png" width=400px> 
 
 ## Setup
 1.	Ensure node.js is installed. 
