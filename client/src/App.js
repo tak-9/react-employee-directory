@@ -28,16 +28,20 @@ class App extends Component {
         const url = "https://randomuser.me/api/?results=20";
         axios.get(url)
         .then((res) => {
-            this.setState( {employees: res.data.results} );
-            this.setState( {employeesForDisplay: res.data.results} );
-            this.setState({isLoading: false});
+            this.setState({
+                employees: res.data.results, 
+                employeesForDisplay: res.data.results,
+                isLoading: false
+            });
         })
         .catch((err)=>{
             console.log("Error in getting employee data", err);
-            this.setState( {employees: []} );
-            this.setState({employeesForDisplay: []});
-            this.setState({isAPIError: true});
-            this.setState({isLoading: false});
+            this.setState({
+                employees: [],
+                employeesForDisplay: [],
+                isAPIError: true,
+                isLoading: false
+            });
         });
     }
 
