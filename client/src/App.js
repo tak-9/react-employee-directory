@@ -9,6 +9,8 @@ import {sortNameAscend, sortNameDecend, sortDOBAscend,
 
 class App extends Component {
     state = {
+        isLoading: true,
+        isAPIError: false,
         employees: [], // Do not modify 'employees' after employees are assinged by API call as it is for keeping original data. 
         employeesForDisplay: [], // employeesForDisplay is displayed in <EmployeeTable />.  
         searchKeyword: "",
@@ -18,7 +20,7 @@ class App extends Component {
         sortPhoneAsc: true
     }
 
-    componentDidMount() { 
+    componentDidMount() {
         this.getEmployees();
     }
 
@@ -28,11 +30,14 @@ class App extends Component {
         .then((res) => {
             this.setState( {employees: res.data.results} );
             this.setState( {employeesForDisplay: res.data.results} );
+            this.setState({isLoading: false});
         })
         .catch((err)=>{
             console.log("Error in getting employee data", err);
             this.setState( {employees: []} );
-            this.setState({employeesForDisplay: []})
+            this.setState({employeesForDisplay: []});
+            this.setState({isAPIError: true});
+            this.setState({isLoading: false});
         });
     }
 
@@ -99,13 +104,15 @@ class App extends Component {
                     searchKeyword={this.state.searchKeyword}
                     handleInputChange={this.handleInputChange}
                 />
+                { this.state.isLoading ? <h4>Loading...</h4>:
                 <EmployeeTable 
                     employees={this.state.employeesForDisplay}
                     sortName={this.sortName}
                     sortPhone={this.sortPhone}
                     sortEmail={this.sortEmail}
                     sortDOB={this.sortDOB}
-                />
+                /> }
+                { this.state.isAPIError? <h4>Error in getting employee data.</h4>: '' }
             </div>
         )
     }
