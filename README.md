@@ -19,7 +19,7 @@ Follow instruction of the section of **"GitHub Pages"** to deploy a front-end ap
 
 
 ## Technologies 
-* HTML, [Bootstrap](https://getbootstrap.com/), JavaScript, [React](https://reactjs.org/)
+* HTML, [Bootstrap](https://getbootstrap.com/), JavaScript, [React](https://reactjs.org/), [Axios](https://github.com/axios/axios)
 
 ##  Credit 
 Employee data is provided by [randomuser.me](https://randomuser.me/) API  
