@@ -8,20 +8,17 @@ https://tak-9.github.io/react-employee-directory/
 
 
 ## Usage 
-1. Access the following URL to open the web application.
-
-2. Use the search box to narrow your results.
-
-3. Click on an arrow to sort by heading.
+* Use the search box to narrow your results.
+* Click on an arrow to sort by heading.
 
 
-## Deployment
+## Deploying React Application to GitHub
 https://create-react-app.dev/docs/deployment/#github-pages
 
 Follow instruction of the section of "Git Hub Pages" to deploy a front-end application built with react to GitHub.
 
 
-## Technologies used
+## Technologies 
 * HTML, [Bootstrap](https://getbootstrap.com/), JavaScript, [React](https://reactjs.org/)
 
 ##  Credit 
