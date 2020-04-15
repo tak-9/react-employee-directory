@@ -1,4 +1,4 @@
-# Employee Directory :bank: :computer: 
+# Employee Directory :bank: 
 This is an Employee Directory using React. A user can view a list of employee's information such as picture, phone number, email and DOB.
 
 ## Live Demo
@@ -8,6 +8,7 @@ https://tak-9.github.io/react-employee-directory/
 
 
 ## Usage 
+:point_right: 
 * Use the search box to narrow your results.
 * Click on an arrow to sort by heading.
 
