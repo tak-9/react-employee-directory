@@ -15,7 +15,7 @@ https://tak-9.github.io/react-employee-directory/
 ## Deploying React Application to GitHub
 https://create-react-app.dev/docs/deployment/#github-pages
 
-Follow instruction of the section of "Git Hub Pages" to deploy a front-end application built with react to GitHub.
+Follow instruction of the section of **"GitHub Pages"** to deploy a front-end application built with react to GitHub.
 
 
 ## Technologies 
